@@ -8,8 +8,6 @@ public class ConvoXApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConvoXApplication.class, args);
-		System.out.println("DB Username: " + System.getenv("DBusername"));
-		System.out.println("DB Password: " + System.getenv("DB_PASSWORD"));
 	}
 
 }
