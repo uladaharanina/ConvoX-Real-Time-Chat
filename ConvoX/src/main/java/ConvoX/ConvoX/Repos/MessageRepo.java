@@ -8,6 +8,6 @@ import ConvoX.ConvoX.Models.Message;
 
 public interface MessageRepo extends MongoRepository<Message, String> {
 
-    List<Message> findByReceiverId(String receiver_id);
+    List<Message> findByReceiverId(String receiverId);
 
 }

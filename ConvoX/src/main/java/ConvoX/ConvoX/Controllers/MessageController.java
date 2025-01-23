@@ -3,6 +3,10 @@ package ConvoX.ConvoX.Controllers;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,16 +20,18 @@ import ConvoX.ConvoX.Services.MessageService;
 public class MessageController {
 
     private final MessageService messageService;
+    private final SimpMessagingTemplate messagingTemplate;
 
-    public MessageController(MessageService messageService) {
+    public MessageController(MessageService messageService, SimpMessagingTemplate messagingTemplate) {
         this.messageService = messageService;
+        this.messagingTemplate = messagingTemplate;
     }
 
-    @GetMapping("/getMessages/{receiver_id}")
-    public ResponseEntity<List<Message>> getMessage(@PathVariable("receiver_id") String receiver_id) {
+    @GetMapping("api/getMessages/{receiverId}")
+    public ResponseEntity<List<Message>> getMessage(@PathVariable("receiverId") String receiverId) {
 
         try {
-            List<Message> userMessages = messageService.getMessages(receiver_id);
+            List<Message> userMessages = messageService.getMessages(receiverId);
             return ResponseEntity.ok(userMessages);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(null);
@@ -34,13 +40,19 @@ public class MessageController {
     }
 
     // This will be through websocket
-    @PostMapping("/sendMessage")
-    public String sendMessage(@RequestBody Message message) {
+    // @MessageMapping("/api/conversations/sendMessage/{conversationId}")
+    @MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public String sendMessage(@DestinationVariable String conversationId, @RequestBody Message message) {
 
-        Message result = messageService.saveMessage(message);
-        if (result != null) {
-            return "Message sent successfully!";
-        }
-        return "Message failed";
+        return "Hello Vlada";
+
+        /*
+         * messageService.saveMessage(message);
+         * messagingTemplate.convertAndSend("/topic/conversations/" + conversationId,
+         * message);
+         */
+
     }
+
 }

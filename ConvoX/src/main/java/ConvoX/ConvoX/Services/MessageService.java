@@ -18,9 +18,9 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
-    public List<Message> getMessages(String receiver_id) {
+    public List<Message> getMessages(String receiverId) {
         try {
-            List<Message> messages = messageRepository.findByReceiverId(receiver_id);
+            List<Message> messages = messageRepository.findByReceiverId(receiverId);
             return messages;
         } catch (Exception e) {
             System.out.println("Error fetching messages: " + e.getMessage());

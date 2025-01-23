@@ -9,34 +9,29 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Message {
 
     @Id
-    private String message_id;
-    private String sender_id;
-    private String receiver_id;
+    private String _id;
+    private String chatId;
+    private String senderId;
+    private String receiverId;
     private String content;
     private LocalDateTime timestamp;
 
     // Constructors...
 
-    // Getters and setters...
-    public Message(String message_id, String sender_id, String receiver_id, String content, LocalDateTime timestamp) {
-
-        this.message_id = message_id;
-        this.sender_id = sender_id;
-        this.receiver_id = receiver_id;
-        this.content = content;
-        this.timestamp = timestamp;
+    public String getMessageId() {
+        return _id;
     }
 
-    public String getMessageId() {
-        return message_id;
+    public String getChatId() {
+        return chatId;
     }
 
     public String getSenderId() {
-        return sender_id;
+        return senderId;
     }
 
     public String getReceiverId() {
-        return receiver_id;
+        return receiverId;
     }
 
     public String getContent() {
@@ -48,15 +43,19 @@ public class Message {
     }
 
     public void setMessageId(String message_id) {
-        this.message_id = message_id;
+        this._id = message_id;
+    }
+
+    public void getChatId(String chat_id) {
+        this.chatId = chat_id;
     }
 
     public void setSenderId(String sender_id) {
-        this.sender_id = sender_id;
+        this.senderId = sender_id;
     }
 
     public void setReceiverId(String receiver_id) {
-        this.receiver_id = receiver_id;
+        this.receiverId = receiver_id;
     }
 
     public void setContent(String content) {
