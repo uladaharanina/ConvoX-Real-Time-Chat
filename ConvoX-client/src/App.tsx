@@ -5,6 +5,7 @@ import { Chat } from './components/Chat'
 import './App.css'
 import './globals.css'
 import { ChatHistory } from './components/ChatHistory'
+import { Header } from './components/Header'
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
 
   return (
     <>
-    <ChatHistory></ChatHistory>
+      <Header></Header>
+      <ChatHistory></ChatHistory>
      </>
   )
 }

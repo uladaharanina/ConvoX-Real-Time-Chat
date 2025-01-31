@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+*{
+    font-family: Inter, Arial, Helvetica, sans-serif;
+}
+:root{
+
+    --primary:#5465FF;
+    --secondary:#788BFF;
+    --third:#9BB1FF;
+    --white:white;
+}
+
+.button-primary{
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.button-secondary{
+    background-color: var(--white);
+    color: var(--primary);
+    border: none;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px rgba(87, 78, 78, 0.329);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0,6s ease-in-out;
+
+}
+
+.button-third{
+    background-color: transparent;
+    font-weight: 500;
+    color: var(--white);
+    margin: 0 0 0 40px;
+    padding: 5px 25px;
+}
+
+.button-secondary:hover{
+    color: var(--primary);
+    transform: scale(1.1);
+    transition: all 0.6s ease-in-out;
+}
+
+.button-third:hover{
+   
+}
