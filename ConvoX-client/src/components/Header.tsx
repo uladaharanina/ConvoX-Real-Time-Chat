@@ -1,11 +1,14 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { NavLink, Link } from "react-router";
 
 'use client'
 
+interface Props{
+    displayLogin?: () => void | null;
+}
 
 
-export const Header = ():ReactElement => {
+export const Header = ({displayLogin}: Props):ReactElement => {
 
     return(
         
@@ -39,7 +42,7 @@ export const Header = ():ReactElement => {
                 </nav>
         
                 <div className="ml-6">
-                  <button className="button-secondary cursor-pointer">Get Started</button>                
+                  <button className="button-secondary cursor-pointer" onClick={displayLogin}>Get Started</button>                
                 </div>
               </div>
             </header>
