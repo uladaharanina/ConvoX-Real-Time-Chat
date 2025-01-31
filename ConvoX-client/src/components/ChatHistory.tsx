@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
-import { Chat } from "./Chat";
+import { MessageInput } from "./MessageInput";
+import { UserList } from './UserList';
 
 interface Message{
     chatId:string,
@@ -18,17 +19,24 @@ export const ChatHistory = (): ReactElement => {
     }
 
     return(
-        <>
+        <>  
+            <section className="w-[600px] mx-auto mt-12 p-5 bg-[var(--bg-white)] rounded-xl shadow-lg">
+                <h1 className="text-center border-b-[var(--bg-primary)] border-b-3 p-4 rounded-sm">Chats</h1>
             <ul className="rounded-sm bg-slay-200 p-5">
                 {
                 chatMessages.length > 0 &&
                 chatMessages.map((message, index) => (
                     <li key={index}>{message.content}</li>
                 ))}
-                <li>No chat history found!</li>
+                <li className="text-center">No chat history found!</li>
             </ul>
 
-            <Chat updateChat = {updateChat}></Chat>
+            <div>
+                <MessageInput updateChat = {updateChat}></MessageInput>
+            </div>
+
+            </section>
+           
         </>
     )
 

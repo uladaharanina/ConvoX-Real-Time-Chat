@@ -9,6 +9,7 @@
     --secondary:#788BFF;
     --third:#9BB1FF;
     --white:white;
+    --bg-primary: #f1f1f16b;
 }
 
 .button-primary{
@@ -16,7 +17,10 @@
     color: var(--white);
     border: none;
     padding: 10px 20px;
+    font-weight: bold;
     border-radius: 5px;
+    transition: 1s all;
+    cursor: pointer;
 }
 
 .button-secondary{
@@ -45,6 +49,33 @@
     transition: all 0.6s ease-in-out;
 }
 
-.button-third:hover{
-   
+.button-primary:hover{
+   transform: scale(1.1);
+   transition: 1s all;
+   box-shadow: -10px 13px 10px #5465ff25;
+}
+
+
+/*Inputs*/
+
+.primary_input{
+    width: 80%; /* Full width */
+    max-width: 400px;
+    padding: 12px 20px; /* Padding inside the input */
+    font-size: 1rem; /* Font size for text */
+    border-bottom: 2px solid var(--primary); /* Light border color */
+    background-color: transparent;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.primary_input:focus {
+    outline: none; /* Remove default focus outline */
+    border-bottom-color: var(--primary); /* Border turns blue when focused */
+    box-shadow: -10px 13px 10px #5465ff17; /* Subtle glow around the input */
+    background-color: #fff; /* Slightly brighter background when focused */
+}
+
+/* Hover Effect */
+.primary_input:hover {
+    border-color: var(--primary); /* Darken the border color on hover */
 }

@@ -1,6 +1,7 @@
 'use client'
-import TextField from "@mui/material/TextField/TextField"
 import { ReactElement, useState } from "react"
+import { IoIosSend } from "react-icons/io";
+
 
 interface Message{
     chatId:string;
@@ -14,7 +15,7 @@ interface Properties {
     updateChat: (data:Message) => void
 }
 
-export const Chat = ({ updateChat }: Properties): ReactElement => {
+export const MessageInput = ({ updateChat }: Properties): ReactElement => {
 
     const [socket, setSocket] = useState<WebSocket | null>(null);
     const [messageText, setMessageText] = useState<string>("");
@@ -77,13 +78,17 @@ export const Chat = ({ updateChat }: Properties): ReactElement => {
     return(
         <>
 
-            <div className="text-white">
-            <TextField id="standard-basic" label="Username" variant="standard"  className="text-gray-700"/>
-            <button className="block m-auto mt-3" onClick={connectToServer}>Connect</button>
+            <div className="">
+                {/*
+                            <button className="block m-auto mt-3" onClick={connectToServer}>Connect</button>
+
+                */}
  
-                <div>
-                    <TextField id="standard-basic" label="Type your message..." variant="standard" className="text-gray-700" onChange={(e) => setMessageText(e.target.value)}/>                
-                    <button className="block m-auto mt-3" onClick={sendMessage}>Send</button>
+                <div className="flex">
+                    <input type="text" className="primary_input mr-10 ml-5"onChange={(e) => setMessageText(e.target.value)}/>
+                    <button className="button-primary flex justify-center items-center gap-[5px]" onClick={sendMessage}>
+                        <span>Send</span> 
+                        <IoIosSend className="text-[1.5em] "/></button>
                 </div>
             </div>
                

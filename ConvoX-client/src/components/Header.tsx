@@ -1,4 +1,6 @@
 import { ReactElement } from "react";
+import { NavLink, Link } from "react-router";
+
 'use client'
 
 
@@ -18,17 +20,12 @@ export const Header = ():ReactElement => {
                 <nav>
                   <ul className="flex justify-center gap-[3em]">
                     <li>
-                      <a
-                        href="#"
-                        className="hover:border-b-white border-b-[var(--primary)] border-b-2 transition-all duration-300 transform hover:scale-110 px-3">Home</a>
+                    <Link to="/" className="hover:border-b-white border-b-[var(--primary)] border-b-2 transition-all duration-300 transform hover:scale-110 px-3">Home</Link>
                     </li>
+
                     <li>
-                      <a
-                        href="#"
-                        className="hover:border-b-white border-b-[var(--primary)] border-b-2 transition-all duration-300 transform hover:scale-110 px-3"
-                      >
-                        Chat
-                      </a>
+                      <Link to="/chats"  className="hover:border-b-white border-b-[var(--primary)] border-b-2 transition-all duration-300 transform hover:scale-110 px-3"
+                      >Chat</Link>
                     </li>
                     <li>
                       <a
