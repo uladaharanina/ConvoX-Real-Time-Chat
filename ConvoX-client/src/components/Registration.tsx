@@ -3,11 +3,11 @@ import { IoCloseCircle } from "react-icons/io5";
 
 interface Props{
     onClose: () => void;
-    onRegistrationOpen: () => void;
-
-}   
-  const Login = ({onClose, onRegistrationOpen}:Props) : ReactElement => {
+    onLoginOpen: () => void;
+}
+const Registration = ({onClose, onLoginOpen}:Props) : ReactElement => {
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +20,7 @@ interface Props{
 <div className="w-full max-w-sm p-8 space-y-6 bg-white rounded-xl shadow-lg border-2 border-gray-300 absolute left-0 right-0 mx-auto top-60">
     <IoCloseCircle className="text-red-400 text-right block ml-[95%] cursor-pointer text-[1.3em] hover:text-red-600 transition duration-300 ease-in-out" onClick={onClose}/>
 
-        <h2 className="text-3xl font-semibold text-center text-gray-800">Login</h2>
+        <h2 className="text-3xl font-semibold text-center text-gray-800">Registration</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Input */}
           <div>
@@ -59,20 +59,16 @@ interface Props{
             type="submit"
             className="w-full py-2 px-4 text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 transition duration-300"
           >
-            Login
+            Register
           </button>
         </form>
 
         {/* Register Link */}
         <div className="text-center">
           <span className="text-sm text-gray-600">
-            Don't have an account?{" "}
-            <button className="text-indigo-600 hover:underline"  
-            onClick={() => {
-                onClose();
-                onRegistrationOpen();
-            }}>
-              Register
+            Already have an account?{" "}
+            <button className="text-indigo-600 hover:underline" onClick={() => {onLoginOpen(); onClose()}}>
+              Login
             </button>
           </span>
         </div>
@@ -80,4 +76,4 @@ interface Props{
   );
 };
 
-export default Login;
+export default Registration;

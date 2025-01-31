@@ -5,28 +5,26 @@ import WaveAnimation from "../components/WaveAnumation";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import Login from "../components/Login";
+import Registration from "../components/Registration";
 
 
 export const Home = (): ReactElement => {
 
-    const[isAuthenticated, setisAuthenticated] = useState<boolean>();
+    //const[isAuthenticated, setisAuthenticated] = useState<boolean>();
     const[isLoginModalOpen, setisLoginVisibility] = useState<boolean>();
+    const[isRegistrationModalOpen, setRegistrationVisibility] = useState<boolean>();
 
-    const displayLogin = () => {
-        setisLoginVisibility(true);
-    }
-
-    const closeLogin = () => {
-        setisLoginVisibility(false);
-    }
     return(
         <>
-        <Header displayLogin={displayLogin}></Header>
+        <Header displayLogin={() => setisLoginVisibility(true)}></Header>
 
         <WaveAnimation></WaveAnimation>
         
             <div className={`transition-opacity duration-500 ${isLoginModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-            <Login onClose={closeLogin} />
+            <Login onClose={() => setisLoginVisibility(false)} onRegistrationOpen={() => setRegistrationVisibility(true)} />
+          </div>
+          <div className={`transition-opacity duration-500 ${isRegistrationModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <Registration onClose={() => setRegistrationVisibility(false)} onLoginOpen={() => setisLoginVisibility(true)} />
           </div>
             
         
