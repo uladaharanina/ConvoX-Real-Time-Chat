@@ -2,6 +2,8 @@ import { ReactElement, useEffect, useState } from "react"
 import { Header } from "../components/Header"
 import '../styles/HomeStyle.css';
 import WaveAnimation from "../components/WaveAnumation";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 
 export const Home = (): ReactElement => {
@@ -17,6 +19,10 @@ export const Home = (): ReactElement => {
             <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">Welcome to ConvoX</h1>
             <h3 className="font-semibold text-2xl md:text-3xl text-gray-800 leading-snug">Connect, Chat, Create Memories</h3>
         </main>
+        <section className="absolute right-20 bottom-20 flex gap-[10px]">
+            <a href="https://www.linkedin.com/in/uladaharanina/"><FaLinkedin className="text-[2.4em] hover:scale-125 transition duration-300 ease-in-out text-[var(--primary-darker)]"/></a>
+            <a href="https://github.com/uladaharanina"><FaGithub className="text-[2.4em] hover:scale-125 transition duration-300 ease-in-out text-[var(--primary-darker)]"/></a>
+        </section>
         </>
     )
 }

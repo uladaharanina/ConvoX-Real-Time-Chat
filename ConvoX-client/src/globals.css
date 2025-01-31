@@ -6,8 +6,10 @@
 :root{
 
     --primary:#5465FF;
+    --primary-darker:#3045FF;
     --secondary:#788BFF;
     --third:#9BB1FF;
+    --fourth:#b300d1;
     --white:white;
     --bg-primary: #f1f1f16b;
 }

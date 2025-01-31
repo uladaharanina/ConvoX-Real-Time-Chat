@@ -39,7 +39,7 @@ export const Header = ():ReactElement => {
                 </nav>
         
                 <div className="ml-6">
-                  <button className="button-secondary">Get Started</button>                
+                  <button className="button-secondary cursor-pointer">Get Started</button>                
                 </div>
               </div>
             </header>
