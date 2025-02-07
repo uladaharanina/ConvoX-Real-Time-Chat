@@ -1,4 +1,4 @@
-package ConvoX.ConvoX.Controllers;
+package ConvoX.Controllers;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import ConvoX.ConvoX.Models.Message;
-import ConvoX.ConvoX.Services.MessageService;
+import ConvoX.Models.Message;
+import ConvoX.Services.MessageService;
 
 @RestController
 public class MessageController {
@@ -30,7 +30,5 @@ public class MessageController {
         }
 
     }
-
-
 
 }

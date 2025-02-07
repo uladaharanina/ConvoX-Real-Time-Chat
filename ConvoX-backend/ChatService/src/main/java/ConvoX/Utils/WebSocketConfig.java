@@ -1,4 +1,4 @@
-package ConvoX.ConvoX.Utils;
+package ConvoX.Utils;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
@@ -9,12 +9,11 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    
     @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry){
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
 
         webSocketHandlerRegistry
-        .addHandler(new SocketConnectionHandler(),"/api/connect")
-        .setAllowedOrigins("*");
+                .addHandler(new SocketConnectionHandler(), "/api/connect")
+                .setAllowedOrigins("*");
     }
 }

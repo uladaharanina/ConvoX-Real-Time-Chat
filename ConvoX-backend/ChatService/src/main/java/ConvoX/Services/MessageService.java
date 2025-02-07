@@ -1,12 +1,12 @@
-package ConvoX.ConvoX.Services;
+package ConvoX.Services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ConvoX.ConvoX.Models.Message;
-import ConvoX.ConvoX.Repos.MessageRepo;
+import ConvoX.Models.Message;
+import ConvoX.Repos.MessageRepo;
 
 @Service
 public class MessageService {

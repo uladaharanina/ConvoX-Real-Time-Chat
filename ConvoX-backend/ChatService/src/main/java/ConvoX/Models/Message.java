@@ -1,4 +1,4 @@
-package ConvoX.ConvoX.Models;
+package ConvoX.Models;
 
 import java.time.LocalDateTime;
 
