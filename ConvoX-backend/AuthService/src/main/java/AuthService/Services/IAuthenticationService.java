@@ -1,8 +1,11 @@
-package main.java.AuthService.Services;
+package AuthService.Services;
 
-interface IAuthenticationService {
+import AuthService.DTOs.NewUserDTO;
+import AuthService.DTOs.UserDTO;
 
-    public UserDTO registeredUser(UserDTO user);
+public interface IAuthenticationService {
+
+    public UserDTO registeredUser(NewUserDTO user);
 
     public UserDTO authenticateUser(UserDTO user);
 }
